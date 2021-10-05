@@ -1,0 +1,17 @@
+stages:
+  training:
+    cmd: python src/train.py
+    deps:
+    - Data/train
+    - Data/valid
+    - params.yaml
+    - src/train.py
+    outs:
+    - model.h5
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - model.h5
+    - src/evaluate.py
+    outs:
+    - scores.json

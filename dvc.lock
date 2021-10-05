@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  training:
+    cmd: python src/train.py
+    deps:
+    - path: Data/train
+      md5: 67688f197f1a40272e219e8c48e64bb9.dir
+      size: 58506
+      nfiles: 101
+    - path: Data/valid
+      md5: 21cf6c792c9262297d0a1dd5cc304a03.dir
+      size: 57753
+      nfiles: 101
+    - path: params.yaml
+      md5: 92bf51ba49e697da06871519e412d7fd
+      size: 108
+    - path: src/train.py
+      md5: 4fe3a8d2618b87d8390113fb420a37b9
+      size: 3355
+    outs:
+    - path: model.h5
+      md5: d55c83b7dc47a8151eb478a2939d5b1f
+      size: 3813304
+      isexec: true
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: model.h5
+      md5: d55c83b7dc47a8151eb478a2939d5b1f
+      size: 3813304
+    - path: src/evaluate.py
+      md5: af1ae3373eb341a6457e6f5445069f47
+      size: 1872
+    outs:
+    - path: scores.json
+      md5: 721c56011fb14f87126155ef4ec61ced
+      size: 38
+      isexec: true
