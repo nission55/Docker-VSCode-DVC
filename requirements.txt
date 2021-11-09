@@ -9,4 +9,5 @@ mlflow==1.20.2
 ipykernel==6.2.0
 dvc==2.6.4
 dvc[gdrive]==2.6.4
+keras==2.6.0
 tensorflow==2.6.0
